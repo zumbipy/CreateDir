@@ -1,29 +1,28 @@
-import sys
 import os
 
 
-def lista_nome_dir(nome_das_pastas=0, inicio=0, fim=0):
-    lista_nome_pastas = []
-    for pastas in range(inicio, fim + 1):
-        numero = str(pastas)
-        lista_nome_pastas.append(nome_das_pastas + numero)
-    return lista_nome_pastas
+class CreateDir(object):
 
+    def __init__(self, numero_pasta, prefixo=None, sufixo=None, inicio=1, nome_pasta=""):
+        self.prefixo = prefixo
+        self.sufixo = sufixo
+        self.inicio = inicio
+        self.numero_pasta = numero_pasta
+        self.nome_pasta = nome_pasta
+        self.lista_nome_pastas = []
 
-def criar_pasta(lista_nome_pastas):
-    for pastas in lista_nome_pastas:
-        print("Pasta {} crianda com sucesso.".format(pastas))
-        os.mkdir(pastas)
+    def criar_nomes(self):
+        if not self.lista_nome_pastas:
+            for pastas in range(self.inicio, self.numero_pasta + 1):
+                self.lista_nome_pastas.append(f'{self.nome_pasta}{pastas}')
 
+    def limpar(self):
+        self.lista_nome_pastas = []
 
-def vizualizar(lista_nome_pastas):
-    for nomes in lista_nome_pastas:
-        print(nomes)
+    def criar_pastas(self):
+        for pastas in self.lista_nome_pastas:
+            os.mkdir(pastas)
 
-
-def main():
-    criar_pasta(lista_nome_dir(sys.argv[1], int(sys.argv[2]), int(sys.argv[3])))
-
-
-if __name__ == '__main__':
-    main()
+    def visualizar(self):
+        for nomes in self.lista_nome_pastas:
+            print(nomes)
