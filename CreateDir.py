@@ -48,9 +48,9 @@ class CreateDir(object):
                 self.lista_nome_pastas.append(f"{n}")
 
     def criar_pastas(self):
-        for pastas in self.lista_nome_pastas:
-            os.mkdir(pastas)
+        for pasta in self.lista_nome_pastas:
+            os.mkdir(pasta)
 
     def visualizar(self):
-        for nomes in self.lista_nome_pastas:
-            print(nomes)
+        for nome in self.lista_nome_pastas:
+            print(nome)
