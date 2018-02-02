@@ -51,7 +51,7 @@ class CreateDir(object):
             nome = self.lista_nome_pastas[0]
             self.lista_nome_pastas = [nome] * self.total_pasta
         else:
-            for numero in range(self.total_pasta - len_nome_pasta):
+            for numero in range((self.total_pasta - len_nome_pasta)):
                 self.lista_nome_pastas.append("")
 
     def prefixo_nome_sufixo(self):
@@ -120,7 +120,7 @@ Comandos Básicos:
 
 comados.add_argument('total_pasta', type=int,
                      help="Valor Total de quantas pasta será criada.")
-comados.add_argument('-n', type=str, nargs='+', default=(),
+comados.add_argument('-n', type=str, nargs='+', default=[],
                      help="Nome ou Nomes para as pastas")
 comados.add_argument('-p', action="store_true", default=False,
                      help="Coloca numero depois do Nome da pasta.")
@@ -132,5 +132,6 @@ var = comados.parse_args()
 
 
 if __name__ == '__main__':
+    print(var)
     CreateDir(var.total_pasta, var.n, prefixo=var.p,
               inicio=var.i, sim=var.s)
