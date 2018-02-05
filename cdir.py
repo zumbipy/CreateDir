@@ -87,10 +87,9 @@ class CreateDir(object):
             sim_nao = input("Criar pastas [s] - sim ou [n] - não: ").lower()
             if sim_nao == 's':
                 return True
-                break
+
             if sim_nao == 'n':
                 return False
-                break
 
 
 comados = argparse.ArgumentParser(prog="cdir.py",
